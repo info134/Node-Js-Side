@@ -1,0 +1,58 @@
+doctype html
+
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    title velkommen
+    link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
+    link(rel="stylesheet" href="/css/style.css")
+    link(rel="shortcut icon" href="/photos/favicon.ico")
+    link(rel="icon" type="image/gif" href="/photos/animated_favicon1.gif")
+    link(rel="apple-touch-icon" href="/photos/apple-touch-icon.png")
+
+  body
+    
+    nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+      a.navbar-brand(href='#')              
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExampleDefault', aria-controls='navbarsExampleDefault', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarsExampleDefault.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/')
+              | Hjem
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='/articles/add') Legg til informasjon
+          
+        ul.navbar-nav.navbar-Right
+          if user
+            li.nav-item
+              a.nav-link(href="/users/person") #{locals.user.username}
+            li.nav-item
+              a.nav-link(href="/users/logout") Logg ut
+          else
+            li.nav-item
+              a.nav-link(href='/users/login') Logg inn
+            li.nav-item
+              a.nav-link(href="/users/register") Registrer
+          
+
+  .container
+    br
+    != messages('message', locals)
+    if errors 
+      each error, i in errors 
+        div(class="alert alert-danger") #{error.msg}
+    block content
+    
+    
+    footer
+      hr(class="foot")
+      p Andreas sin test side  *  
+        a.link(href='/articles/gdpr')  GDPR Personvernerklæring
+
+  script(src='/bower_components/jquery/dist/jquery.js')  
+  script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+  script(src="/js/main.js")

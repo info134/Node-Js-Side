@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  br  
+  h1 #{title}
+  br
+  form(method="POST", action="/articles/edit/"+article._id)
+    #form-group
+      label Tittel:
+      input.form-control(name="title", type="text", value=article.title)
+    #form-group
+      label Tekst:
+      textarea.form-control(name="body")=article.body
+      br
+    input.btn.btn-primary(type="submit",value="Send")

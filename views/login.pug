@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Logg inn
+  
+  script(src="/js/facebook.js")
+  .fb-login-button(data-max-rows='1', data-size='medium', data-button-type='continue_with', data-show-faces='false', data-auto-logout-link='false', data-use-continue-as='true')
+
+  
+  form(method='POST', action='/users/login')
+    #form-group
+      label Brukernavn:
+      input.form-control(name='username',type='text')
+    #form-group
+      label Passord:
+      input.form-control(name='password',type='password')
+    br
+    input.btn.btn-primary(type='submit',value='Send')

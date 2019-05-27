@@ -1,0 +1,11 @@
+doctype html
+html
+  body
+    button(onclick='bank()') Try it
+    p 
+      #bank
+    script.
+      function bank() {
+      var x = document.getElementsByClassName("anchors")[0].id;
+      document.getElementById("bank").innerHTML = x;
+      }

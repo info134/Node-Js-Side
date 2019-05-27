@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  br
+  h1 #{article.title}
+  br
+  h5 Skrevet av #{author}
+  p  #{article.body}
+  hr
+  if user 
+    if user.id ==article.author
+      a.btn.btn-primary(href="/articles/edit/"+article._id) Rediger
+      b 
+      a.btn.btn-danger.delete-article(href="#", data-id=article._id) Slett

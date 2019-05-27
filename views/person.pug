@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1 Dine opplysninger
+  form(method='POST', action='/users/register')
+    #form-group
+      label Navn:
+      input.form-control(name='name', value=locals.user.name type='text' disabled)
+    #form-group
+      label Epost:
+      input.form-control(name='email',  value=locals.user.email, type='text' disabled)
+    #form-group
+      label Brukernavn:
+      input.form-control(name='username', value=locals.user.username ,type='text' disabled)
